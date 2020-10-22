@@ -3,3 +3,6 @@ language: java
 git:
   depth: false
   autocrlf: input # Prevents git to try to be smart with line endings
+
+script:
+  - ./gradlew check
