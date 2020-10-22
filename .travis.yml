@@ -4,5 +4,8 @@ git:
   depth: false
   autocrlf: input # Prevents git to try to be smart with line endings
 
+install:
+  - true
+
 script:
   - ./gradlew check
