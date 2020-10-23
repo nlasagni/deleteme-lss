@@ -62,7 +62,7 @@ jobs:
     - <<: *reference_machine
       stage: Compile
       script:
-        - ./gradlew compile --parallel
+        - ./gradlew compileKotlin --parallel
       workspaces:
         create: compiled_env
         paths:
