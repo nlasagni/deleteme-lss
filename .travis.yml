@@ -53,7 +53,8 @@ stages:
   - Compile
   - Kotlin Style Check
   - Complete Check
-  - test
+  - name: test
+    if: 'commit_message !~ /\[\s*skip(?: |-|\.)test\s*\].*/'
   - name: Delivery
     if: repo = nlasagni/deleteme-lss
 
