@@ -46,6 +46,13 @@ _reference_machine: &reference_machine
   os: *reference_os
   env: *reference_jdk
 
+_workspace_name: &workspace_name
+  compiled_env
+_import_workspace: &import_workspace
+  workspaces:
+    use: *workspace_name
+
+
 jobs:
   exclude:
     - arch: arm64
@@ -59,12 +66,19 @@ jobs:
       stage: Compile
       script:
         - ./gradlew compile --parallel
+      workspaces:
+        create: compiled_env
+        paths:
+          - "$TRAVIS_BUILD_DIR"
+          - "$HOME/.gradle"
     - <<: *reference_machine
         stage: Kotlin Style Check
+        <<: *import_workspace
         script:
           - ./gradlew detekt ktlintCheck --parallel
     - <<: *reference_machine
       stage: Complete Check
+      <<: *import_workspace
       script:
         -  travis_retry ./gradlew check
 
