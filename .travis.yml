@@ -38,6 +38,9 @@ env:
     - GRAVIS_REPO="https://github.com/DanySK/Gravis-CI.git"
     - GRAVIS="$HOME/gravis"
     - TERM=dumb
+    - secure: "MdbOr5CuW6NQLx8GCffLuyOrh8j/e1uxs/V2imyqJgH9ZllzHk7+ZuTgcTznCrMX0GYW/ohuLD1yXQ263bjhSdsPxHUPsSMEfvc2K2ECgKkmYAI0xOpIXV4gA/Tqof+qkUrTOje6i5eabcoUWH1W2HNDkbSYHeomexJOQy6cEmXpSNP41IcQtwJZwMotu44YTISYLQKBg+e2ysv+mc5hoGbJvTK//t0xl2CCnjZY87V9gqk+RDxbK4npwfMtqLhpMwULm6NTURI9KZmFWm24MVRbv3OdUcPcN9Cr9H5+TQ6I4AP48XMFg9klhMAqnme5/oXfZnZPedd4dcwB7XtHswdonIa9BPnNWx43sW13IM5puUmX9aEljsTv+XUHKD7lbO9D+zUMVdz1V786GK+p633ulGah9tsqT4HKl8oY3ayc4sbIkFd4F1KX/qL/FG2W3Onpy96GzDU6AJ5+eD32UrpV83GEGcDsOXY2e9JRsV9mNE45OgOWD8h0L08+YEf80ye8dGQPrCbOSsvywKyKGcomUdtvYoOvnkrsLhoSwwcVpgs3yu7wonD5C23quV0o0kXsNtNxi92k5+zadj87SKacxHMyyuNuVAi2Ggy4jge8ul8nBoZmogBv+cpahVZEwEwHgQw7pMzN9CMrYjEktw3GRHXB6nGLT/gYA6u/cCM="
+
+
   matrix:
     - *reference_jdk
     - JDK="adopt@1.8"
