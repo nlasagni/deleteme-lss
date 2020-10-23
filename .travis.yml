@@ -1,3 +1,4 @@
+# Test conditional delivery
 if: repo != head_repo
 
 _reference_os: &reference_os
