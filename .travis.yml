@@ -4,6 +4,15 @@ _reference_arch: &reference_arch
   amd64
 _reference_jdk: &reference_jdk
   JDK="adopt@1.11"
+_reference_machine: &reference_machine
+  arch: *reference_arch
+  os: *reference_os
+  env: *reference_jdk
+_workspace_name: &workspace_name
+                   compiled_env
+_import_workspace: &import_workspace
+  workspaces:
+    use: *workspace_name
 
 language: minimal
 
@@ -41,18 +50,6 @@ stages:
   - Complete Check
   - test
 
-_reference_machine: &reference_machine
-  arch: *reference_arch
-  os: *reference_os
-  env: *reference_jdk
-
-_workspace_name: &workspace_name
-  compiled_env
-_import_workspace: &import_workspace
-  workspaces:
-    use: *workspace_name
-
-
 jobs:
   exclude:
     - arch: arm64
@@ -72,10 +69,10 @@ jobs:
           - "$TRAVIS_BUILD_DIR"
           - "$HOME/.gradle"
     - <<: *reference_machine
-        stage: Kotlin Style Check
-        <<: *import_workspace
-        script:
-          - ./gradlew detekt ktlintCheck --parallel
+      stage: Kotlin Style Check
+      <<: *import_workspace
+      script:
+        - ./gradlew detekt ktlintCheck --parallel
     - <<: *reference_machine
       stage: Complete Check
       <<: *import_workspace
