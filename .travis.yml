@@ -99,6 +99,10 @@ jobs:
         - travis_retry ./gradlew publishMavenCentralPublicationToMavenRepository
       after_success:
         - ./gradlew publishPlugins -Pgradle.publish.key=$PLUGIN_PORTAL_KEY -Pgradle.publish.secret=$PLUGIN_PORTAL_SECRET
+      before_deploy:
+        - ./gradlew generateVersionFile
+        - export VERSION=$(cat build/version)
+        - git tag -a $VERSION -m "Version $VERSION"
       deploy:
         provider: releases # Deploys on GitHub Releases
         file: build/libs/*.jar # Files to deploy
@@ -106,6 +110,7 @@ jobs:
         on: # filter
           all_branches: true
           # tags: true # deploy only tags
+
 before_install:
   - travis_retry git clone --depth 1 $GRAVIS_REPO $GRAVIS
   - source $GRAVIS/install-jdk
