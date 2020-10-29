@@ -98,14 +98,14 @@ jobs:
       script:
         - travis_retry ./gradlew publishMavenCentralPublicationToMavenRepository
       after_success:
-        - ./gradlew publishPlugins
+        - ./gradlew publishPlugins -Pgradle.publish.key=$PLUGIN_PORTAL_KEY -Pgradle.publish.secret=$PLUGIN_PORTAL_SECRET
 
 before_install:
   - travis_retry git clone --depth 1 $GRAVIS_REPO $GRAVIS
   - source $GRAVIS/install-jdk
 
 install:
-  - true
+  - "true"
 
 script:
   - travis_retry ./gradlew test

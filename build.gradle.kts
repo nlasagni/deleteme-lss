@@ -13,7 +13,7 @@ plugins {
     id("org.danilopianini.publish-on-central")
 }
 
-group = "org.danilopianini"
+group = "org.nicolalasagni"
 
 gitSemVer {
     version = computeGitSemVer()
@@ -63,9 +63,9 @@ dependencies {
 }
 
 pluginBundle { // These settings are set for the whole plugin bundle
-    website = "https://danysk.github.io/Course-Laboratory-of-Software-Systems/"
-    vcsUrl = "https://github.com/DanySK/Course-Laboratory-of-Software-Systems"
-    tags = listOf("example", "greetings", "lss", "unibo")
+    website = "https://nlasagni.github.io/"
+    vcsUrl = "https://github.com/nlasagni/deleteme-lss"
+    tags = listOf("example", "greetings", "lss")
 }
 gradlePlugin {
     plugins {
@@ -102,8 +102,8 @@ publishOnCentral {
     projectLongName.set("Exemplary greeting plugin")
     licenseName.set("MIT License")
     licenseUrl.set("https://opensource.org/licenses/MIT")
-    projectUrl.set("https://github.com/DanySK/Course-Laboratory-of-Software-Systems")
-    scmConnection.set("git:git@github.com:DanySK/Course-Laboratory-of-Software-Systems.git")
+    projectUrl.set("https://github.com/nlasagni/deleteme-lss")
+    scmConnection.set("git:git@github.com:nlasagni/deleteme-lss")
 }
 
 publishing {
@@ -112,9 +112,9 @@ publishing {
             pom {
                 developers {
                     developer {
-                        name.set("Danilo Pianini")
-                        email.set("danilo.pianini@gmail.com")
-                        url.set("http://www.danilopianini.org/")
+                        name.set("Nicola Lasagni")
+                        email.set("nicola.lasagni@gmail.com")
+                        url.set("https://nlasagni.github.io/")
                     }
                 }
             }
